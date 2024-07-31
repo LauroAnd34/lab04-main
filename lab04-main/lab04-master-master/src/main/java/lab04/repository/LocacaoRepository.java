@@ -27,7 +27,6 @@ public class LocacaoRepository {
         TypedQuery<Locacao> query = manager.createQuery(
                 "SELECT l FROM Locacao l JOIN FETCH l.imoveis WHERE l.idLocacao = :id", Locacao.class);
         query.setParameter("id", id);
-
         return query.getResultStream().findFirst().orElse(null);
     }
 
